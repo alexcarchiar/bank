@@ -13,7 +13,30 @@ class Area:
     used in the Area table. Look it up in the documentatoin
     if needed
     """
-    def __init__(self, code, address)
+    def __init__(self, code, address, city, email, pec):
+        """
+        Class contructor method for Area. It takes as input
+        the fields from the table Area and it stores them into
+        an object in order to deal with it.
+        """
+        self.code = code
+        self.address = address
+        self.city = city
+        self.email = email
+        self.pec = pec
+    
+    def __str__(self):
+        """
+        Special method used to print all of the attribute of the current object
+        """
+        string = 'This Area has code ' + str(self.code) + ' located at ' + self.address + ' ' + self.city + ' and the contact information is ' + self.email + ' ' + self.pec
+        print(string)
+    def __repr(self):
+        """
+        Special method used to print all of the attribute of the current object
+        """
+        string = 'Area( ' + str(self.code) + ', ' + self.address + ', ' + self.city + ', ' + self.email + ', ' + self.pec + ')'
+        print(string)
 
 class Branch:
     """
@@ -25,7 +48,7 @@ class Branch:
         """
         Class contructor method for Branch. It takes as input
         the fields from the table Branch and it stores them into
-        an object in order to deal with it. s
+        an object in order to deal with it.
         """
         self.code = code
         self.address = address

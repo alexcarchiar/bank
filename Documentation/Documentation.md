@@ -67,6 +67,17 @@ We have the following modules:
 
 This module contains all the classes and helper functions needed in order to correctly manage a banking system. I am probably also going to put here all the functions that are more specific to this banking system, that is, the functions to make money transfers, open accounts and everything else.
 
+#### Area
+
+class Area(code, address, city, email, pec).
+All the attributes are the ones found in Area table (see the 2. Relational Database in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Area) is called)
+- class string representation used to have a quick representation of Area's attributes (it is shorter than string format)
+
 #### Branch
 
 class Branch(code, address, city, email, telephone, area, pec, type).
@@ -75,5 +86,5 @@ All the attributes are the ones found in Branch table (see the 2. Relational Dat
 We have the following methods:
 
 - class constructor
-- class string format (used when print(branch) is called)
+- class string format (used when print(Branch) is called)
 - class string representation used to have a quick representation of Branch's attributes (it is shorter than string format)
