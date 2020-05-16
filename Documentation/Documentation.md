@@ -31,9 +31,9 @@ Area(*Code* tinyint unsigned, Address, verchar (50), City varchar(15), Email var
 
 Branch( *Code* tinyint unsigned, Address varchar(50), City varchar(15), Telephone int, Type Set:{'Retail', 'Affluent', 'Corporate'}, Pec varchar(29), Email varchar(25), **Area** code field from Area table)
 
-Employee( *ID* smallint, **Branch** NULL code field from Branch, SSN UNIQUE char 16, Birth date, Name varchar(15), Surname varchar(15), Address varchar(50), City varchar(15), Cellphone  int, SecondaryPhone NULL int, Email varchar(25), DocumentID UNIQUE char(20), **Area** NULL code field from Area) //only one between **Branch** and **Area** can be NULL, since an employee either works in a branch or in a area hq
+Employee( *ID* smallint, **Branch** NULL code field from Branch, SSN UNIQUE char(16), Birth date, Name varchar(15), Surname varchar(15), Address varchar(50), City varchar(15), Cellphone  int, SecondaryPhone NULL int, Email varchar(25), DocumentID UNIQUE char(20), **Area** NULL code field from Area) //only one between **Branch** and **Area** can be NULL, since an employee either works in a branch or in a area hq
 
-Private(*SSN* char(16), DocumentID UNIQUE char(20), Email varchar(25), Telephone int, SecondaryPhone NULL int, Birth date, Address varchar(50), City varchar(15)) //Privates are people who are customers of the bank; the other tupe of customers are companies
+Private(*SSN* char(16), DocumentID UNIQUE char(20), Email varchar(25), Telephone int, SecondaryPhone NULL int, Birth date, Address varchar(50), City varchar(15), Name varchar(15), Surname varchar(15)) //Privates are people who are customers of the bank; the other tupe of customers are companies
 
 Company(*TaxCode* char(11), Address varchar(50), City varchar(15), Foundation date, Email varchar(25), Telephone int, Website NULL varchar(25), Representative varchar(30))
 
