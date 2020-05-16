@@ -2,21 +2,26 @@
 
 I am writing some documentation which will also be useful for me.
 
+Current version: 0.1
+
+The program is not functional, we currently have only the database structure and on my machine I filling it up. Once I have a few records here and there, I am going to start writing the Python code to interact with the database and then start making the rest of the application.
+
 #### Index:
 
 1. Technologies used
 2. Relational Database
 3. Interface
 
-## Technologies used
+## 1. Technologies used
 
 I am using:
 
 - Raspberry Pi 4 as a server
+- MacOS Catalina as a client
 - Raspbian+Apache+SQL+PHPMyAdmin
-- Python
+- Python code
 
-## Relational Database
+## 2. Relational Database
 
 Later on I will try to provide a graphic representation.
 
