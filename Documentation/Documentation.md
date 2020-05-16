@@ -99,3 +99,25 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Employee) is called)
 - class string representation used to have a quick representation of Employee's attributes (it is shorter than string format)
+
+#### Private
+
+class Private(ssn, documentID, email, telephone, secondaryphone, birth, address, city, name, surname)
+All the attributes are the ones found in Private table (see the 2. Relational Database in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Private) is called)
+- class string representation used to have a quick representation of Private's attributes (it is shorter than string format)
+
+#### Company
+
+class Company(taxCode, address, city, foundationDate, email, telephone, website, representative)
+All the attributes are the ones found in Company table (see the 2. Relational Database in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Company) is called)
+- class string representation used to have a quick representation of Company's attributes (it is shorter than string format)

@@ -27,7 +27,7 @@ class Area:
     
     def __str__(self):
         """
-        Special method used to print all of the attribute of the current object
+        Special method used to print all of the attributes of the current object
         """
         string = 'This Area has code ' + str(self.code) + ' located at ' + self.address + ' ' + self.city + ' and the contact information is ' + self.email + ' ' + self.pec
         print(string)
@@ -61,7 +61,7 @@ class Branch:
     
     def __str__(self):
         """
-        Special method used to print all of the attribute of the current object
+        Special method used to print all of the attributes of the current object
         """
         string = 'This Branch has code ' + str(self.code) + ', area: ' + str(self.area) + ', located at ' + self.address + ' ' + self.city + '. It is a ' + self.type + 'branch. Contacts: ' + self.email + ' ' + self.pec + ' ' + str(self.telephone)
         print(string)
@@ -100,7 +100,7 @@ class Employee:
     
     def __str__(self):
         """
-        Special method used to print all of the attribute of the current object
+        Special method used to print all of the attributes of the current object
         """
         string = 'The Employee code ' + self.id + 'is ' + self.name + ' ' + self.surname + ' born on ' + self.birth +' works at branch ' + str(self.branch) + ' in area ' + str(self.area) + '. The registerd document is: ' + self.documentID + 'with SSN: ' + self.ssn + ' lives in ' + self.address + ' ' + self.city + 'contact information: email is ' + self.email + ' cellphone: ' + str(self.cellphone)
         if(self.secondaryPhone != None):
@@ -161,4 +161,47 @@ class Private:
         else:
             string += 'None'
         string += ')'
+        print(string)
+
+class Company:
+    """
+    This class is used to deal with Company. Its attributes are the same
+    used in the Company table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, taxCode, address, city, foundationDate, email, telephone, website, representative):
+        """
+        Class contructor method for Company. It takes as input
+        the fields from the table Company and it stores them into
+        an object in order to deal with it.
+        """
+        self.taxCode = taxCode
+        self.address = address
+        self.city = city
+        self.foundationDate = foundationDate
+        self.email = email
+        self.telephone = telephone
+        self.website = website
+        self.representative = representative
+    
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'The company has tax code ' + self.taxCode + ' founded on ' + self.foundationDate + '. Headquarters in ' + self.address + ' ' + self.city + '. Contact information: email ' + self.email + ' telephone ' + str(self.telephone) 
+        if(self.website != None):
+            string += 'the website is ' + self.website
+        string += '. The representative is ' + self.representative
+        print(string)
+
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Company( ' + self.taxCode + ', ' + self.address + ', ' + self.city + ', ' + self.foundationDate + ', ' + self.email + ', ' + self.telephone + ', '
+        if(self.website != None):
+            string += self.website + ', '
+        else:
+            string += 'None, '
+        string += self.representative + ')'
         print(string)
