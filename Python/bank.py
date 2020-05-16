@@ -69,6 +69,96 @@ class Branch:
         """
         Special method to have a quick way to print a log of the current state of the object
         """
-        string = 'Branch(' + str(self.code) + ', ' + str(self.area) + ', ' + self.address + ', ' + self.city + ', ' + self.type + ', ' + self.email + ', ' + self.pec + ', ' +str(self.telephone) + ')'
+        string = 'Branch( ' + str(self.code) + ', ' + str(self.area) + ', ' + self.address + ', ' + self.city + ', ' + self.type + ', ' + self.email + ', ' + self.pec + ', ' +str(self.telephone) + ')'
         print(string)
 
+class Employee:
+    """
+    This class is used to deal with Employee. Its attributes are the same
+    used in the Employee table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, ID, branch, ssn, birth, name, surname, address, city, cellphone, secondaryPhone, email, documentID, area):
+        """
+        Class contructor method for Employee. It takes as input
+        the fields from the table Employee and it stores them into
+        an object in order to deal with it.
+        """
+        self.id = ID
+        self.branch = branch
+        self.ssn = ssn
+        self.name = name
+        self.surname = surname
+        self.address = address
+        self.city = city
+        self.cellphone = cellphone
+        self.secondaryPhone = secondaryPhone
+        self.email = email
+        self.documentID = documentID
+        self.area = area
+        self.birth = birth
+    
+    def __str__(self):
+        """
+        Special method used to print all of the attribute of the current object
+        """
+        string = 'The Employee code ' + self.id + 'is ' + self.name + ' ' + self.surname + ' born on ' + self.birth +' works at branch ' + str(self.branch) + ' in area ' + str(self.area) + '. The registerd document is: ' + self.documentID + 'with SSN: ' + self.ssn + ' lives in ' + self.address + ' ' + self.city + 'contact information: email is ' + self.email + ' cellphone: ' + str(self.cellphone)
+        if(self.secondaryPhone != None):
+            string += 'secondary phone is: ' + str(self.secondaryPhone)
+        print(string)
+
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string  = 'Area( ' + self.id + ', ' + str(self.branch) + ', ' + str(self.area) + ', ' + self.ssn + ', ' + self.documentID + ', ' + self.name + ', ' + self.surname + ', ' + self.birth + ', ' + self.address + ', ' + self.city + ', ' + self.email + ', ' + self.cellphone + ', '
+        if(self.secondaryPhone != None):
+            string += str(self.secondaryPhone)
+        else:
+            string += 'None'
+        string += ')'
+        print(string)
+    
+class Private:
+    """
+    This class is used to deal with Private. Its attributes are the same
+    used in the Private table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, ssn, documentID, email, telephone, secondaryphone, birth, address, city, name, surname):
+        """
+        Class contructor method for Private. It takes as input
+        the fields from the table Private and it stores them into
+        an object in order to deal with it.
+        """
+        self.ssn = ssn
+        self.documentID = documentID
+        self.email = email
+        self.telephone = telephone
+        self.secondaryPhone = secondaryphone
+        self.birth = birth
+        self.address = address
+        self.city = city
+        self.name = name
+        self.surname = surname
+    
+    def __str__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'This private has SSN ' + self.ssn + ' and the registerd document is ' + self.documentID + '. The name is ' + self.name + ' ' + self.surname + 'born on ' + self.birth + ', lives in ' + self.address + ' ' + self.city + '. Contact information: email: ' + self.email + ' telephone: ' + self.telephone
+        if(self.secondaryPhone != None):
+            string += ' the secondary phone is: ' + self.secondaryPhone
+        print(string)
+
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Private( ' + self.ssn + ', ' + self.documentID + ', ' + self.name + ', ' + self.surname + ', ' + self.birth + ', ' + self.email + ', ' + self.telephone
+        if(self.secondaryPhone != None):
+            string += str(self.secondaryPhone)
+        else:
+            string += 'None'
+        string += ')'
+        print(string)

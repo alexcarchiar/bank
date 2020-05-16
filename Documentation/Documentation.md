@@ -88,3 +88,14 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Branch) is called)
 - class string representation used to have a quick representation of Branch's attributes (it is shorter than string format)
+
+#### Employee
+
+class Employee(ID, branch, ssn, birth, name, surname, address, city, cellphone, secondaryPhone, email, documentID, area)
+All the attributes are the ones found in Employee table (see the 2. Relational Database in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Employee) is called)
+- class string representation used to have a quick representation of Employee's attributes (it is shorter than string format)
