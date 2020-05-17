@@ -154,3 +154,14 @@ We have the following methods:
 - class constructor
 - class string format (used when print(CompanyBinder) is called)
 - class string representation used to have a quick representation of CompanyBinder's attributes (it is shorter than string format)
+
+#### Contract
+
+class Contract(code, branch *code*, binder *code*, type)
+All the attributes are the ones found in the Contract table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Contract) is called)
+- class string representation used to have a quick representation of ContractBinder's attributes (it is shorter than string format)

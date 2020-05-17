@@ -278,3 +278,28 @@ class CompanyBinder:
         """
         string = 'This is a binder code '+ self.binder + ' for a private ' + self.taxCode
         print(string)
+
+class Contract:
+    """
+    This class is used to deal with Contract. Its attributes are the same
+    used in the Company table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, code, binder, typ):
+        self.code = code
+        self.binder = binder
+        self.type = typ
+    
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Contract( ' + self.code + ', ' + self.binder + ', ' + self.type + ')'
+        print(string)
+    
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'Contract number ' + self.code + ' signed by binder ' + self.binder + ' is for a ' + self.type
+        print(string)
