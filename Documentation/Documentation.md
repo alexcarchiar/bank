@@ -47,7 +47,7 @@ Contract(*Code* char(20), **Binder** Binder field from Binder, Type Set:{'Checki
 
 Account(*IBAN* char(25), **Contract** code field from Contract, Interest float, OpeningDate date, Balance, Type Set:{'Checking', 'Savings'})
 
-Card(*Code* int, ExpiryDate date, EmissionDate date, Price float, **Contract** field from Contract, Price float, Type Set:{'Debit','Credit'})
+Card(*Code* int, ExpiryDate date, EmissionDate date, Price float, **Contract** field from Contract, Type Set:{'Debit','Credit'})
 
 RecordPayment(**SenderSSN** NULL SSN field from Private, **SenderTaxCode** NULL TaxCode field from Company ***SenderBinder*** code field from Binder, **ReceiverSSN** NULL SSN field from Private, **ReceiverTaxCode** NULL TaxCode field from Company ***ReceiverBinder*** code field from Binder, PaymentType SET:{'WireTransfer', 'CreditCard', 'DebitCard', 'Check', 'Deposit', 'Withdrawal'}, *Date* timestamp, Commision float )
 The RecordPayment table keeps track of all money transfers. At least one between SenderSSN and SenderTaxCode need to be not null (it is the one making the operation). In case the PaymentType is Withdrawal or Deposit, we do not need any receiver since the operation is done on the same account. If the PaymentType is one of the other four categories, then we need one between ReceiverSSN and ReceiverTaxCode. Commision is the money the bank charges for the operation.
@@ -165,3 +165,25 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Contract) is called)
 - class string representation used to have a quick representation of ContractBinder's attributes (it is shorter than string format)
+
+#### Account
+
+class Account(iban, contract *code*, interest, openingDate, balance, type)
+All the attributes are the ones found in the Account table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Account) is called)
+- class string representation used to have a quick representation of Account's attributes (it is shorter than string format)
+
+#### Card
+
+class Card(code, expirtyDate, emissionDate, price, contract, type)
+All the attributes are the ones found in the Card table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Card) is called)
+- class string representation used to have a quick representation of Card's attributes (it is shorter than string format)
