@@ -49,7 +49,7 @@ Account(*IBAN* char(25), **Contract** code field from Contract, Interest float, 
 
 Card(*Code* int, ExpiryDate date, EmissionDate date, Price float, **Contract** field from Contract, Type Set:{'Debit','Credit'})
 
-RecordPayment(**SenderSSN** NULL SSN field from Private, **SenderTaxCode** NULL TaxCode field from Company ***SenderBinder*** code field from Binder, **ReceiverSSN** NULL SSN field from Private, **ReceiverTaxCode** NULL TaxCode field from Company ***ReceiverBinder*** code field from Binder, PaymentType SET:{'WireTransfer', 'CreditCard', 'DebitCard', 'Check', 'Deposit', 'Withdrawal'}, *Date* timestamp, Commision float )
+RecordPayment(**SenderSSN** NULL SSN field from Private, **SenderTaxCode** NULL TaxCode field from Company ***SenderBinder*** code field from Binder, **ReceiverSSN** NULL SSN field from Private, **ReceiverTaxCode** NULL TaxCode field from Company ***ReceiverBinder*** code field from Binder, PaymentType SET:{'WireTransfer', 'CreditCard', 'DebitCard', 'Check', 'Deposit', 'Withdrawal'}, *Date* timestamp, Commission float )
 The RecordPayment table keeps track of all money transfers. At least one between SenderSSN and SenderTaxCode need to be not null (it is the one making the operation). In case the PaymentType is Withdrawal or Deposit, we do not need any receiver since the operation is done on the same account. If the PaymentType is one of the other four categories, then we need one between ReceiverSSN and ReceiverTaxCode. Commision is the money the bank charges for the operation.
 
 We make the following assumptions (note that they are still susceptible to changes):
