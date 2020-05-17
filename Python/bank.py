@@ -209,7 +209,7 @@ class Company:
 class Binder:
     """
     This class is used to deal with Binder. Its attributes are the same
-    used in the Company table. Look it up in the documentation
+    used in the Binder table. Look it up in the documentation
     if needed.
     """
     def __init__(self, code, branch, typ):
@@ -234,10 +234,15 @@ class Binder:
 class PrivateBinder:
     """
     This class is used to deal with PrivateBinder. Its attributes are the same
-    used in the Company table. Look it up in the documentation
+    used in the PrivateBinder table. Look it up in the documentation
     if needed.
     """
     def __init__(self, binder, ssn):
+        """
+        Class contructor method for PrivateBinder. It takes as input
+        the fields from the table Private and it stores them into
+        an object in order to deal with it.
+        """
         self.binder = binder
         self.ssn = ssn
     
@@ -258,10 +263,15 @@ class PrivateBinder:
 class CompanyBinder:
     """
     This class is used to deal with CompanyBinder. Its attributes are the same
-    used in the Company table. Look it up in the documentation
+    used in the CompanyBinder table. Look it up in the documentation
     if needed.
     """
     def __init__(self, binder, taxCode):
+        """
+        Class contructor method for CompanyBinder. It takes as input
+        the fields from the table CompanyBinder and it stores them into
+        an object in order to deal with it.
+        """
         self.binder = binder
         self.taxCode = taxCode
     
@@ -286,6 +296,11 @@ class Contract:
     if needed.
     """
     def __init__(self, code, binder, typ):
+        """
+        Class contructor method for Contract. It takes as input
+        the fields from the table Contract and it stores them into
+        an object in order to deal with it.
+        """
         self.code = code
         self.binder = binder
         self.type = typ
@@ -311,6 +326,11 @@ class Account:
     if needed.
     """
     def __init__(self, iban, contract, interest, openingDate, balance, typ):
+        """
+        Class contructor method for Account. It takes as input
+        the fields from the table Account and it stores them into
+        an object in order to deal with it.
+        """
         self.iban = iban
         self.contract = contract
         self.interest = interest
@@ -339,6 +359,11 @@ class Card:
     if needed.
     """
     def __init__(self, code, expiryDate, emissionDate, price, contract, typ):
+        """
+        Class contructor method for Card. It takes as input
+        the fields from the table Card and it stores them into
+        an object in order to deal with it.
+        """
         self.code = code
         self.expiryDate = expiryDate
         self.emissionDate = emissionDate
@@ -358,4 +383,41 @@ class Card:
         Special method used to print all of the attributes of the current object
         """
         string = 'The ' + self.type + ' card ' + self.code + 'contract ' + self.contract + 'was emitted on ' + self.emissionDate + 'and expires on' + self.expiryDate + '. It costs ' + self.price 
+        print(string)
+
+class RecordPayment:
+    """
+    This class is used to deal with RecordPayment. Its attributes are the same
+    used in the RecordPayment table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, senderSSN, senderTaxCode, senderBinder, receiverSSN, receiverTaxCode, receiverBinder, paymentType, date, commission):
+        """
+        Class contructor method for RecordPayment. It takes as input
+        the fields from the table RecordPayment and it stores them into
+        an object in order to deal with it.
+        """
+        self.senderSSN = senderSSN
+        self.senderTaxCode = senderTaxCode
+        self.senderBinder = senderBinder
+        self.receiverSSN = receiverSSN
+        self.receiverTaxCode = receiverTaxCode
+        self.receiverBinder = receiverBinder
+        self.paymentType = paymentType
+        self.date = date
+    
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'RecorPayment( ' + self.senderSSN + ', ' + self.senderTaxCode + ', ' + self.senderBinder + ', ' + self.receiverSSN + ', ' + self.receiverTaxCode + ', ' + self.receiverBinder + ', ' + self.paymentType + ', ' + self.date
+        print(string)
+
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        #need to find a better idea for the string format, but I am pretty sure that in this case
+        #the repr format is good enough since in this case it is just a payment record
+        string = 'RecorPayment( ' + self.senderSSN + ', ' + self.senderTaxCode + ', ' + self.senderBinder + ', ' + self.receiverSSN + ', ' + self.receiverTaxCode + ', ' + self.receiverBinder + ', ' + self.paymentType + ', ' + self.date
         print(string)
