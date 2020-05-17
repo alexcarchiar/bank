@@ -205,3 +205,28 @@ class Company:
             string += 'None, '
         string += self.representative + ')'
         print(string)
+
+class Binder:
+    """
+    This class is used to deal with Company. Its attributes are the same
+    used in the Company table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, code, branch, typ):
+        self.code = code
+        self.branch = branch
+        self.type = typ
+    
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Binder( ' + self.code + ', ' + self.branch + ', ' + self.type + ')'
+        print(string)
+
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'The Binder has code: ' + self.code + ' signed in branch ' + self.branch + ' and it is of type ' + self.type
+        print(string)

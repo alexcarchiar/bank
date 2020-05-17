@@ -70,7 +70,7 @@ This module contains all the classes and helper functions needed in order to cor
 #### Area
 
 class Area(code, address, city, email, pec).
-All the attributes are the ones found in Area table (see the 2. Relational Database in the documentation)
+All the attributes are the ones found in Area table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
 
@@ -81,7 +81,7 @@ We have the following methods:
 #### Branch
 
 class Branch(code, address, city, email, telephone, area, pec, type).
-All the attributes are the ones found in Branch table (see the 2. Relational Database in the documentation)
+All the attributes are the ones found in Branch table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
 
@@ -92,7 +92,7 @@ We have the following methods:
 #### Employee
 
 class Employee(ID, branch, ssn, birth, name, surname, address, city, cellphone, secondaryPhone, email, documentID, area)
-All the attributes are the ones found in Employee table (see the 2. Relational Database in the documentation)
+All the attributes are the ones found in Employee table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
 
@@ -103,7 +103,7 @@ We have the following methods:
 #### Private
 
 class Private(ssn, documentID, email, telephone, secondaryphone, birth, address, city, name, surname)
-All the attributes are the ones found in Private table (see the 2. Relational Database in the documentation)
+All the attributes are the ones found in Private table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
 
@@ -114,10 +114,22 @@ We have the following methods:
 #### Company
 
 class Company(taxCode, address, city, foundationDate, email, telephone, website, representative)
-All the attributes are the ones found in Company table (see the 2. Relational Database in the documentation)
+All the attributes are the ones found in Company table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
 
 - class constructor
 - class string format (used when print(Company) is called)
 - class string representation used to have a quick representation of Company's attributes (it is shorter than string format)
+
+#### Binder
+
+class Binder(code, branch, typ)
+All the attributes are the ones found in the Binder table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(Binder) is called)
+- class string representation used to have a quick representation of Binder's attributes (it is shorter than string format)
+
