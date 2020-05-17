@@ -179,7 +179,7 @@ We have the following methods:
 
 #### Card
 
-class Card(code, expirtyDate, emissionDate, price, contract, type)
+class Card(code, expirtyDate, emissionDate, price, contract *code*, type)
 All the attributes are the ones found in the Card table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
