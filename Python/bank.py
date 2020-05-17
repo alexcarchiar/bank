@@ -237,3 +237,20 @@ class PrivateBinder:
     used in the Company table. Look it up in the documentation
     if needed.
     """
+    def __init__(self, binder, ssn):
+        self.binder = binder
+        self.ssn = ssn
+    
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'PrivateBinder( ' + self.binder + ', ' + self.ssn + ')'
+        print(string)
+
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'This is a binder code '+ self.binder + ' for a private ' + self.ssn
+        print(string)
