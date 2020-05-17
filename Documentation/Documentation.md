@@ -80,7 +80,7 @@ We have the following methods:
 
 #### Branch
 
-class Branch(code, address, city, email, telephone, area, pec, type).
+class Branch(code, address, city, email, telephone, area *code*, pec, type).
 All the attributes are the ones found in Branch table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
@@ -91,7 +91,7 @@ We have the following methods:
 
 #### Employee
 
-class Employee(ID, branch, ssn, birth, name, surname, address, city, cellphone, secondaryPhone, email, documentID, area)
+class Employee(ID, branc *code* , ssn, birth, name, surname, address, city, cellphone, secondaryPhone, email, documentID, area *code*)
 All the attributes are the ones found in Employee table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
@@ -133,3 +133,24 @@ We have the following methods:
 - class string format (used when print(Binder) is called)
 - class string representation used to have a quick representation of Binder's attributes (it is shorter than string format)
 
+#### PrivateBinder
+
+class PrivateBinder(binder *code*, ssn)
+All the attributes are the ones found in the PrivateBinder table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(PrivateBinder) is called)
+- class string representation used to have a quick representation of PrivateBinder's attributes (it is shorter than string format)
+
+#### CompanyBinder
+
+class CompanyBinder(binder *code*, taxCode)
+All the attributes are the ones found in the CompanyBinder table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(CompanyBinder) is called)
+- class string representation used to have a quick representation of CompanyBinder's attributes (it is shorter than string format)
