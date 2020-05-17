@@ -208,7 +208,7 @@ class Company:
 
 class Binder:
     """
-    This class is used to deal with Company. Its attributes are the same
+    This class is used to deal with Binder. Its attributes are the same
     used in the Company table. Look it up in the documentation
     if needed.
     """
@@ -230,3 +230,10 @@ class Binder:
         """
         string = 'The Binder has code: ' + self.code + ' signed in branch ' + self.branch + ' and it is of type ' + self.type
         print(string)
+
+class PrivateBinder:
+    """
+    This class is used to deal with PrivateBinder. Its attributes are the same
+    used in the Company table. Look it up in the documentation
+    if needed.
+    """
