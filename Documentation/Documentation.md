@@ -187,3 +187,14 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Card) is called)
 - class string representation used to have a quick representation of Card's attributes (it is shorter than string format)
+
+#### RecordPayment
+
+class RecordPayment(senderSSN, senderTaxCode, senderBinder, receiverSSN, receiverTaxCode, receiverBinder, paymentType, date, commission)
+All the attributes are the ones found in the RecordPayment table (see the *2. Relational Database* in the documentation)
+
+We have the following methods:
+
+- class constructor
+- class string format (used when print(RecordPayment) is called)
+- class string representation used to have a quick representation of RecordPayment's attributes (it is shorter than string format)
