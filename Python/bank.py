@@ -303,3 +303,59 @@ class Contract:
         """
         string = 'Contract number ' + self.code + ' signed by binder ' + self.binder + ' is for a ' + self.type
         print(string)
+
+class Account:
+    """
+    This class is used to deal with Account. Its attributes are the same
+    used in the Account table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, iban, contract, interest, openingDate, balance, typ):
+        self.iban = iban
+        self.contract = contract
+        self.interest = interest
+        self.openingDate = openingDate
+        self.balance = balance
+        self.type = typ
+
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Account( ' + self.iban + ', ' + self.contract + ', ' + self.interest + ', ' + self.openingDate + ', ' + self.balance + ', ' + self.type + ')'
+        print(string)
+
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'This ' + self.type + ' account has iban ' + self.iban + ' with contract ' + self.contract + '. Its interest is ' + self.interest + '. The account was opened on ' + self.openingDate + '. The balance is ' + self.balance
+        print(string)
+
+class Card:
+    """
+    This class is used to deal with Account. Its attributes are the same
+    used in the Account table. Look it up in the documentation
+    if needed.
+    """
+    def __init__(self, code, expiryDate, emissionDate, price, contract, typ):
+        self.code = code
+        self.expiryDate = expiryDate
+        self.emissionDate = emissionDate
+        self.price = price
+        self.contract = contract
+        self.type = typ
+    
+    def __repr__(self):
+        """
+        Special method to have a quick way to print a log of the current state of the object
+        """
+        string = 'Card( ' + self.code + ', ' + self.expiryDate + ', ' + self.emissionDate + ', ' + self.price + ', ' + self.contract + ', ' + self.type + ')'
+        print(string)
+
+    def __str__(self):
+        """
+        Special method used to print all of the attributes of the current object
+        """
+        string = 'The ' + self.type + ' card ' + self.code + 'contract ' + self.contract + 'was emitted on ' + self.emissionDate + 'and expires on' + self.expiryDate + '. It costs ' + self.price 
+        print(string)
