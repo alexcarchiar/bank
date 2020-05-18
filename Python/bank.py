@@ -7,6 +7,8 @@ that is, the functions to make money transfers,
 open accounts and everything else.
 """
 
+import mysql.connector
+
 class Area:
     """
     This class is used to deal with Area. Its attributes are the ones
@@ -421,3 +423,41 @@ class RecordPayment:
         #the repr format is good enough since in this case it is just a payment record
         string = 'RecorPayment( ' + self.senderSSN + ', ' + self.senderTaxCode + ', ' + self.senderBinder + ', ' + self.receiverSSN + ', ' + self.receiverTaxCode + ', ' + self.receiverBinder + ', ' + self.paymentType + ', ' + self.date
         print(string)
+
+def wireTransfer(senderAccount, receiverAccount, commission, amount, database):
+    """
+    This function takes two accounts and allows us
+    to transfer money from one account to another one
+    senderAccount and receiverAccount are two accounts as defined above
+    amount is the amount that needs to be transfered from
+    senderAccount towards receiverAccount
+    commission is a floating point number that represents
+    the commission the bank takes to realize a wire transfer
+    It returns a RecordPayment instance if it works, otherwise
+    it returns None.
+    """
+    if(senderAccount.balance >= (amount + commission)):
+        sql = """
+            SELECT Binder FROM Contract
+            WHERE Contract = (SELECT Contract FROM Account
+                                WHERE Contract = """
+        sql += str(senderAccount.contract) + ");"
+        cursor = database.cursor()
+        cursor.execute(sql)
+
+        print(sql)
+
+
+    else:
+        return None
+
+acc1 = Account("IT902429353143", 2132, 1.2, '12-08-2000', 10000.2, 'checking')
+acc2 = Account("IT90444353143", 2133, 1.2, '12-08-2000', 10000.2, 'checking')
+database = mysql.connector.connect(
+    host = '',
+    user = '',
+    passwd = '',
+)
+    
+print('yay')
+wireTransfer(acc1, acc2, 0, 12, database)
