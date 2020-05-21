@@ -2,9 +2,14 @@
 
 I am writing some documentation which will also be useful for me.
 
-Current version: 0.1
+Current version: 0.2
 
 The program is not functional, we currently have only the database structure and on my machine I filling it up. Once I have a few records here and there, I am going to start writing the Python code to interact with the database and then start making the rest of the application.
+
+#### Version control:
+
+- 0.1: created the backbone of the database
+- 0.2: created the classes and established connection using remote.it to intereact with the database
 
 #### Index:
 
@@ -19,7 +24,9 @@ I am using:
 - Raspberry Pi 4 as a server
 - MacOS Catalina as a client
 - Raspbian+Apache+SQL+PHPMyAdmin
-- Python code
+- Python. Modules:
+  - proprietary (documentation below)
+  - mysql connector (official mysql module to interact with MySQL server)
 
 ## 2. Relational Database
 
@@ -176,6 +183,7 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Account) is called)
 - class string representation used to have a quick representation of Account's attributes (it is shorter than string format)
+- addToDatabase(self, mydb): it is used to add the current account to the database mydb
 
 #### Card
 
@@ -198,3 +206,8 @@ We have the following methods:
 - class constructor
 - class string format (used when print(RecordPayment) is called)
 - class string representation used to have a quick representation of RecordPayment's attributes (it is shorter than string format)
+
+#### Functions
+
+- createConnection():
+  	this function establishes a connection with the database and returns it. It is used to call mysql.connector.connect() faster and without having to write all parameters

@@ -354,6 +354,14 @@ class Account:
         string = 'This ' + self.type + ' account has iban ' + self.iban + ' with contract ' + self.contract + '. Its interest is ' + self.interest + '. The account was opened on ' + self.openingDate + '. The balance is ' + self.balance
         print(string)
 
+    def addToDatabase(self, mydb): #this method works!
+    	mycursor = mydb.cursor()
+
+    	sql = "INSERT INTO Account (IBAN, contract, Interest, OpeningDate, Balance, Type) VALUES (%s, %s, %s, %s, %s, %s)"
+    	val = [(str(self.iban), str(self.contract), str(self.interest), str(self.openingDate), str(self.balance), str(self.type))]
+    	mycursor.executemany(sql, val)
+    	mydb.commit()
+
 class Card:
     """
     This class is used to deal with Account. Its attributes are the same
@@ -451,13 +459,20 @@ def wireTransfer(senderAccount, receiverAccount, commission, amount, database):
     else:
         return None
 
-acc1 = Account("IT902429353143", 2132, 1.2, '12-08-2000', 10000.2, 'checking')
-acc2 = Account("IT90444353143", 2133, 1.2, '12-08-2000', 10000.2, 'checking')
-database = mysql.connector.connect(
-    host = '',
-    user = '',
-    passwd = '',
-)
-    
+
+acc1 = Account("IT902429353143", 1, 1.2, '2000-08-12', 10000.2, 'checking') 
+acc2 = Account("IT90444353143", 2, 1.2, '2000-08-12', 10000.2, 'checking')
+acc3 = Account("IT90544353143", 3, 1.2, '2000-08-12', 10000.2, 'checking')
+def createConnection():
+	database = mysql.connector.connect(
+	    host = 'proxy55.rt3.io',
+	    user = 'pi',
+	    passwd = 'password', port = '37162', database = 'bank'
+	)
+	return database
+#acc1.addToDatabase(database)
+#acc2.addToDatabase(database)
+database = createConnection()
+acc3.addToDatabase(database)
+database.close()
 print('yay')
-wireTransfer(acc1, acc2, 0, 12, database)
