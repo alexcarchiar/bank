@@ -15,7 +15,7 @@ class Area:
     used in the Area table. Look it up in the documentatoin
     if needed
     """
-    def __init__(self, code, address, city, email, pec):
+    def __init__(self, code, address, city, email, pec, telephone):
         """
         Class contructor method for Area. It takes as input
         the fields from the table Area and it stores them into
@@ -26,6 +26,7 @@ class Area:
         self.city = city
         self.email = email
         self.pec = pec
+        self.telephone = telephone
     
     def __str__(self):
         """
@@ -33,12 +34,20 @@ class Area:
         """
         string = 'This Area has code ' + str(self.code) + ' located at ' + self.address + ' ' + self.city + ' and the contact information is ' + self.email + ' ' + self.pec
         print(string)
+
     def __repr__(self):
         """
         Special method used to print all of the attribute of the current object
         """
         string = 'Area( ' + str(self.code) + ', ' + self.address + ', ' + self.city + ', ' + self.email + ', ' + self.pec + ')'
         print(string)
+
+    def addToDatabase(self, mydb):
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO Area (Code, Address, City, Email, Pec, Telephone) VALUES (%s, %s, %s, %s, %s, %s)"
+        val = [(str(self.code), str(self.address), str(self.city),str(self.email),str(self.pec),str(self.telephone))]
+        mycursor.executemany(sql, val)
+        mydb.commit()
 
 class Branch:
     """
@@ -67,12 +76,20 @@ class Branch:
         """
         string = 'This Branch has code ' + str(self.code) + ', area: ' + str(self.area) + ', located at ' + self.address + ' ' + self.city + '. It is a ' + self.type + 'branch. Contacts: ' + self.email + ' ' + self.pec + ' ' + str(self.telephone)
         print(string)
+    
     def __repr__(self):
         """
         Special method to have a quick way to print a log of the current state of the object
         """
         string = 'Branch( ' + str(self.code) + ', ' + str(self.area) + ', ' + self.address + ', ' + self.city + ', ' + self.type + ', ' + self.email + ', ' + self.pec + ', ' +str(self.telephone) + ')'
         print(string)
+    
+    def addToDatabase(self, mydb):
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO Branch (Code, Address, City, Email, Telephone, Area, Pec, Type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        val = [(str(self.code), str(self.address), str(self.city),str(self.email),str(self.telephone),str(self.area), str(self.pec), str(self.type))]
+        mycursor.executemany(sql, val)
+        mydb.commit()
 
 class Employee:
     """
@@ -121,6 +138,17 @@ class Employee:
         string += ')'
         print(string)
     
+    def addToDatabase(self, mydb):
+        mycursor = mydb.cursor()
+        if(self.secondaryPhone == None):
+            sql = "INSERT INTO Employee (ID, Branch, SSN, Birth, Name, Surname, Address, City, Cellphone, Email, DocumentID, Area) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            val = [(str(self.id), str(self.branch),str(self.ssn),str(self.birth),str(self.name),str(self.surname),str(self.address),str(self.city),str(self.cellphone), str(self.email),str(self.documentID),str(self.area))]    
+        else:
+            sql = "INSERT INTO Employee (ID, Branch, SSN, Birth, Name, Surname, Address, City, Cellphone, SecondaryPhone, Email, DocumentID, Area) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            val = [(str(self.id), str(self.branch),str(self.ssn),str(self.birth),str(self.name),str(self.surname),str(self.address),str(self.city),str(self.cellphone), str(self.secondaryPhone), str(self.email),str(self.documentID),str(self.area))]
+        mycursor.executemany(sql, val)
+        mydb.commit()
+#need to continue from this on
 class Private:
     """
     This class is used to deal with Private. Its attributes are the same
@@ -320,7 +348,7 @@ class Contract:
         """
         string = 'Contract number ' + self.code + ' signed by binder ' + self.binder + ' is for a ' + self.type
         print(string)
-
+#account is ok
 class Account:
     """
     This class is used to deal with Account. Its attributes are the same
@@ -459,20 +487,14 @@ def wireTransfer(senderAccount, receiverAccount, commission, amount, database):
     else:
         return None
 
-
-acc1 = Account("IT902429353143", 1, 1.2, '2000-08-12', 10000.2, 'checking') 
-acc2 = Account("IT90444353143", 2, 1.2, '2000-08-12', 10000.2, 'checking')
-acc3 = Account("IT90544353143", 3, 1.2, '2000-08-12', 10000.2, 'checking')
-def createConnection():
+def createConnection(hostname, portnumber):
 	database = mysql.connector.connect(
-	    host = 'proxy55.rt3.io',
+	    host = hostname,
 	    user = 'pi',
-	    passwd = 'password', port = '37162', database = 'bank'
+	    passwd = 'password', port = str(portnumber), database = 'bank'
 	)
 	return database
-#acc1.addToDatabase(database)
-#acc2.addToDatabase(database)
-database = createConnection()
-acc3.addToDatabase(database)
+
+database = createConnection("proxy51.rt3.io",39899)
 database.close()
-print('yay')
+

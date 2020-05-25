@@ -76,7 +76,7 @@ This module contains all the classes and helper functions needed in order to cor
 
 #### Area
 
-class Area(code, address, city, email, pec).
+class Area(code, address, city, email, pec, telephone).
 All the attributes are the ones found in Area table (see the *2. Relational Database* in the documentation)
 
 We have the following methods:
@@ -84,6 +84,7 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Area) is called)
 - class string representation used to have a quick representation of Area's attributes (it is shorter than string format)
+- addToDatabase(self, mydb) stores into the database the current Area
 
 #### Branch
 
@@ -95,6 +96,7 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Branch) is called)
 - class string representation used to have a quick representation of Branch's attributes (it is shorter than string format)
+- addToDatabase(self, mydb) stores into the database the current Branch
 
 #### Employee
 
@@ -106,6 +108,7 @@ We have the following methods:
 - class constructor
 - class string format (used when print(Employee) is called)
 - class string representation used to have a quick representation of Employee's attributes (it is shorter than string format)
+- addToDatabase(self, mydb) stores into the database the current Employee
 
 #### Private
 
@@ -209,5 +212,5 @@ We have the following methods:
 
 #### Functions
 
-- createConnection():
-  	this function establishes a connection with the database and returns it. It is used to call mysql.connector.connect() faster and without having to write all parameters
+- createConnection(hostname, portnumber):
+  	this function establishes a connection with the database and returns it. It is used to call mysql.connector.connect() faster and without having to write all parameters.
