@@ -33,7 +33,7 @@ class Area:
         """
         string = 'This Area has code ' + str(self.code) + ' located at ' + self.address + ' ' + self.city + ' and the contact information is ' + self.email + ' ' + self.pec
         print(string)
-    def __repr(self):
+    def __repr__(self):
         """
         Special method used to print all of the attribute of the current object
         """
